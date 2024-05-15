@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suppression de compte dans l'application MKParis Concept</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+      }
+      p,
+      ol,
+      button {
+        margin-bottom: 20px;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #c82333;
+      }
+      .lang-button {
+        background-color: #007bff;
+        margin-right: 10px;
+      }
+      .lang-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+    <script>
+      function setLanguage(lang) {
+        document.querySelectorAll(".lang").forEach(function (el) {
+          el.style.display = "none";
+        });
+        document.querySelectorAll(".lang-" + lang).forEach(function (el) {
+          el.style.display = "block";
+        });
+        // Stocke la langue sélectionnée dans le localStorage
+        localStorage.setItem("preferredLanguage", lang);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Vérifie si une langue préférée est stockée dans le localStorage
+        const storedLang = localStorage.getItem("preferredLanguage");
+        if (storedLang) {
+          setLanguage(storedLang);
+        } else {
+          // Détecte la langue préférée de l'utilisateur
+          const userLang = navigator.language || navigator.userLanguage;
+          if (userLang.startsWith("fr")) {
+            setLanguage("fr");
+          } else {
+            setLanguage("en");
+          }
+        }
+      });
+
+      function redirectToApp() {
+        // Redirection vers l'application mobile
+        window.location.href = "mkparisconcept://";
+        // Si l'application n'est pas installée, vous pouvez rediriger vers un lien web alternatif
+        setTimeout(function () {
+          window.location.href = "https://mkparisconcept.com/";
+        }, 500);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div style="text-align: right">
+        <button class="lang-button" onclick="setLanguage('fr')">
+          Français
+        </button>
+        <button class="lang-button" onclick="setLanguage('en')">English</button>
+      </div>
+      <div class="lang lang-fr">
+        <h1>Supprimer votre compte dans l'application MKParis Concept</h1>
+        <p>
+          Voici comment supprimer votre compte dans notre application mobile :
+        </p>
+        <ol>
+          <li>Ouvrez l'application MKParis Concept sur votre appareil.</li>
+          <li>Accédez à votre profil ou à vos paramètres.</li>
+          <li>
+            Recherchez l'option "Supprimer mon compte" ou quelque chose de
+            similaire.
+          </li>
+          <li>
+            Cliquez sur cette option pour commencer le processus de suppression
+            de compte.
+          </li>
+          <li>
+            Confirmez la suppression de votre compte lorsque vous y êtes invité.
+          </li>
+        </ol>
+        <p>Voici des captures d'écran pour vous aider :</p>
+        <div class="class" style="display: flex; flex-direction: row; justify-content: space-between">
+          <img src="1.png" alt="Capture d'écran 1"  style="width: 30%; " />
+          <img src="2.png" alt="Capture d'écran 2" style="width: 30%; "/>
+          <img src="3.png" alt="Capture d'écran 2" style="width: 30%; "/> 
+      </div>
+        <p>
+          Si vous avez des difficultés à trouver cette option ou si vous avez
+          des questions, n'hésitez pas à contacter notre service clientèle.
+        </p>
+        <button onclick="redirectToApp()">Retourner à l'application</button>
+      </div>
+      <div class="lang lang-en">
+        <h1>Delete your account in the MKParis Concept app</h1>
+        <p>Here’s how to delete your account in our mobile app:</p>
+        <ol>
+          <li>Open the MKParis Concept app on your device.</li>
+          <li>Go to your profile or settings.</li>
+          <li>Look for the "Delete my account" option or something similar.</li>
+          <li>Click on this option to start the account deletion process.</li>
+          <li>Confirm the deletion of your account when prompted.</li>
+        </ol>
+        <p>Here are some screenshots to help you:</p>
+        <div class="class" style="display: flex; flex-direction: row; justify-content: space-between">
+          <img src="1.png" alt="Capture d'écran 1"  style="width: 30%; " />
+          <img src="2.png" alt="Capture d'écran 2" style="width: 30%; "/>
+          <img src="3.png" alt="Capture d'écran 2" style="width: 30%; "/> 
+      </div>
+        <p>
+          If you have trouble finding this option or have any questions, feel
+          free to contact our customer service.
+        </p>
+        <button onclick="redirectToApp()">Return to the app</button>
+      </div>
+    </div>
+  </body>
+</html>
